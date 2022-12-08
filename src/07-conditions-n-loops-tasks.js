@@ -280,20 +280,21 @@ function reverseInteger(num) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(ccn) {
-  const digits = `${ccn}`.split('').map((val) => parseInt(val));
-  const res = digits.length % 2;
-  const transformed = digits.map((digit, idx) => {
-    if ((idx % 2) === res) {
-      if ((digit * 2) > 9) {
-        return (digit * 2) - 9;
-      }
-      return digit * 2;
-    }
-    return digit;
-  });
+function isCreditCardNumber(/* ccn */) {
+  throw new Error('Not implemented');
+//   const digits = `${ccn}`.split('').map((val) => parseInt(val));
+//   const res = digits.length % 2;
+//   const transformed = digits.map((digit, idx) => {
+//     if ((idx % 2) === res) {
+//       if ((digit * 2) > 9) {
+//         return (digit * 2) - 9;
+//       }
+//       return digit * 2;
+//     }
+//     return digit;
+//   });
 
-  return (transformed.reduce((acc, digit) => acc + digit, 0) % 10) === 0;
+//   return (transformed.reduce((acc, digit) => acc + digit, 0) % 10) === 0;
 }
 
 /**
