@@ -281,7 +281,7 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-  return digits = `${ccn}`
+  return `${ccn}`
       .split('')
       .map((val) => parseInt(val))
       .map((digit, idx, digits) => (idx % 2) === (digits.length % 2) 
