@@ -284,9 +284,9 @@ function isCreditCardNumber(ccn) {
   const digits = `${ccn}`.split('').map((val) => parseInt(val));
   const res = digits.length % 2;
   const transformed = digits.map((digit, idx) => {
-    if (idx % 2 === res) {
-      if (digit * 2 > 9) {
-        return digit * 2 - 9;
+    if ((idx % 2) === res) {
+      if ((digit * 2) > 9) {
+        return (digit * 2) - 9;
       }
       return digit * 2;
     }
