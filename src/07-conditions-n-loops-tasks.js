@@ -284,8 +284,8 @@ function isCreditCardNumber(ccn) {
   return `${ccn}`
       .split('')
       .map((val) => parseInt(val))
-      .map((digit, idx, digits) => (idx % 2) === (digits.length % 2) 
-          ? (digit * 2 > 9 ? digit * 2 - 9 : digit * 2) 
+      .map((digit, idx, digits) => ((idx % 2) === (digits.length % 2)) 
+          ? (((digit * 2) > 9) ? ((digit * 2) - 9) : (digit * 2)) 
           : digit).reduce((acc, digit) => acc + digit, 0) % 10 === 0;
 }
 
