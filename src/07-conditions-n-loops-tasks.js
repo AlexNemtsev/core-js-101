@@ -281,12 +281,19 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-  return `${ccn}`
-      .split('')
-      .map((val) => parseInt(val))
-      .map((digit, idx, digits) => ((idx % 2) === (digits.length % 2)) 
-          ? (((digit * 2) > 9) ? ((digit * 2) - 9) : (digit * 2)) 
-          : digit).reduce((acc, digit) => acc + digit, 0) % 10 === 0;
+  const digits = `${ccn}`.split('').map((val) => parseInt(val));
+  const res = digits.length % 2;
+  const transformed = digits.map((digit, idx) => {
+    if (idx % 2 === res) {
+      if (digit * 2 > 9) {
+        return digit * 2 - 9;
+      }
+      return digit * 2;
+    }
+    return digit;
+  });
+
+  return transformed.reduce((acc, digit) => acc + digit, 0) % 10 === 0;
 }
 
 /**
