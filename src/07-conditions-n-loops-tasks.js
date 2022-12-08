@@ -293,7 +293,7 @@ function isCreditCardNumber(ccn) {
     return digit;
   });
 
-  return transformed.reduce((acc, digit) => acc + digit, 0) % 10 === 0;
+  return (transformed.reduce((acc, digit) => acc + digit, 0) % 10) === 0;
 }
 
 /**
