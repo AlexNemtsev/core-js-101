@@ -395,8 +395,8 @@ function toNaryString(num, n) {
 function getCommonDirectoryPath(pathes) {
   const segments = pathes.map((str) => str.split('/'));
   const shortestPath = segments.reduce((acc, val) => {
-      if (val.length > acc. length) return val;
-      else return acc;
+    if (val.length > acc.length) return val;
+    return acc;
   });
 
   const common = [];
@@ -410,7 +410,9 @@ function getCommonDirectoryPath(pathes) {
     }
   }
 
-  return common.length === 1 ? '/' : common.join('/');
+  const joined = common.join('/').length > 0 ? `${common.join('/')}/` : '';
+
+  return common.length === 1 ? '/' : joined;
 }
 
 /**
